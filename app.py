@@ -13,10 +13,11 @@ def index():
         phone_number = request.form['phone_number']
         company_domain = request.form.get('company_domain')
 
+        # Call all intelligence modules
         result['truecaller'] = search_truecaller(phone_number)
         result['phoneinfoga'] = run_phoneinfoga(phone_number)
         result['google_dorks'] = google_dork_links(phone_number)
-        
+
         if company_domain:
             result['hunter'] = search_hunter(company_domain)
         else:
