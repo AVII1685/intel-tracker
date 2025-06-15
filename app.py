@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from modules.truecaller_scraper import search_truecaller
-from modules.phoneinfoga_runner import run_phoneinfoga
 from modules.google_dork_links import google_dork_links
 from modules.hunter_checker import search_hunter
 
@@ -15,7 +14,6 @@ def index():
 
         # Call all intelligence modules
         result['truecaller'] = search_truecaller(phone_number)
-        result['phoneinfoga'] = run_phoneinfoga(phone_number)
         result['google_dorks'] = google_dork_links(phone_number)
 
         if company_domain:
