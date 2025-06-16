@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Result</title>
+    <title>Phone Intelligence Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { background: #fff; padding: 20px; border-radius: 10px; max-width: 700px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 5px 0; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
-  <h2>📲 Tracking Info for {{ number }}</h2>
-  <ul>
-    <li><strong>Name:</strong> {{ truecaller.name }}</li>
-    <li><strong>Carrier:</strong> {{ truecaller.carrier }}</li>
-    <li><strong>Location:</strong> {{ truecaller.location }}</li>
-    <li><strong>Email:</strong> {{ truecaller.email }}</li>
-  </ul>
-  <a href="/">🔙 Back</a>
+    <div class="container">
+        <h1>📱 Tracking Info for {{ phone_number }}</h1>
+
+        <h3>📋 Truecaller Info</h3>
+        <ul>
+            <li><strong>Name:</strong> {{ truecaller_result.name }}</li>
+            <li><strong>Carrier:</strong> {{ truecaller_result.carrier }}</li>
+            <li><strong>Location:</strong> {{ truecaller_result.location }}</li>
+            <li><strong>Email:</strong> {{ truecaller_result.email }}</li>
+        </ul>
+
+        <h3>🔍 Google Dorking Links</h3>
+        <ul>
+            {% for link in google_dorks %}
+                <li><a href="https://www.google.com/search?q={{ link }}" target="_blank">{{ link }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
