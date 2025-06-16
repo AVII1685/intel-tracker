@@ -1,8 +1,11 @@
+# modules/truecaller_scraper.py
+
 def search_truecaller(phone_number):
+    # Ye dummy data hai, baad me scraper/API connect karenge
     result = {
-        "name": "Not Found",
+        "name": "Amit Sharma",
         "carrier": "Airtel",
         "location": "Delhi",
-        "email": "unknown@example.com"
+        "email": "amit@example.com"
     }
     return result
