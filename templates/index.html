@@ -1,35 +1,16 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Phone Intelligence Tracker</title>
+  <meta charset="UTF-8">
+  <title>Phone Intelligence Tracker</title>
 </head>
 <body>
-    <h1>Phone Number Intelligence Tool</h1>
-    
-    <form method="post">
-        <input type="text" name="phone_number" placeholder="Enter phone number" required><br><br>
-        <input type="text" name="company_domain" placeholder="Enter company domain (e.g. google.com)"><br><br>
-        <button type="submit">Search</button>
-    </form>
-
-    {% if result.truecaller %}
-        <h2>Truecaller:</h2>
-        <pre>{{ result.truecaller }}</pre>
-    {% endif %}
-
-    {% if result.phoneinfoga %}
-        <h2>PhoneInfoga:</h2>
-        <pre>{{ result.phoneinfoga }}</pre>
-    {% endif %}
-
-    {% if result.google_dorks %}
-        <h2>Google Dork Links:</h2>
-        <pre>{{ result.google_dorks }}</pre>
-    {% endif %}
-
-    {% if result.hunter %}
-        <h2>Hunter.io:</h2>
-        <pre>{{ result.hunter }}</pre>
-    {% endif %}
+  <h1>📱 Phone Number Intelligence Tracker</h1>
+  <form method="POST" action="/track">
+    <label>Enter Phone Number:</label>
+    <input type="text" name="phone_number" required>
+    <button type="submit">Track</button>
+  </form>
 </body>
 </html>
