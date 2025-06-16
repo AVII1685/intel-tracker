@@ -3,20 +3,50 @@
 <head>
     <title>Phone Intelligence Result</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
-        .container { background: #fff; padding: 20px; border-radius: 10px; max-width: 700px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 5px 0; }
-        a { color: #007bff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        pre { background: #f0f0f0; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h3 {
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>📱 Tracking Info for {{ phone_number }}</h1>
 
+        <!-- Truecaller Info -->
         <h3>📋 Truecaller Info</h3>
         <ul>
             <li><strong>Name:</strong> {{ truecaller_result.name }}</li>
@@ -25,6 +55,7 @@
             <li><strong>Email:</strong> {{ truecaller_result.email }}</li>
         </ul>
 
+        <!-- Google Dorking Links -->
         <h3>🔍 Google Dorking Links</h3>
         <ul>
             {% for link in google_dorks %}
@@ -32,8 +63,11 @@
             {% endfor %}
         </ul>
 
+        <!-- PhoneInfoga Output -->
         <h3>📞 PhoneInfoga Result</h3>
-        <pre>{{ phoneinfoga_output }}</pre>
+        <div>
+            <pre style="white-space: pre-wrap; word-wrap: break-word;">{{ phoneinfoga_output }}</pre>
+        </div>
     </div>
 </body>
 </html>
