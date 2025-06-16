@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from modules.truecaller_scraper import search_truecaller
-from modules.google_dork_links import generate_google_dorks  # ✅ Import kiya
+from modules.google_dork_links import generate_google_dorks
 
 app = Flask(__name__)
 
@@ -12,10 +12,7 @@ def index():
 def result():
     phone_number = request.form['phone_number']
     
-    # Truecaller Module
     truecaller_result = search_truecaller(phone_number)
-    
-    # Google Dorking Module
     google_dorks = generate_google_dorks(phone_number)
 
     return render_template('result.html',
