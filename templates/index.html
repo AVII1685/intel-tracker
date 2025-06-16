@@ -1,14 +1,14 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Intel Tracker</title>
+    <title>Phone Number Tracker</title>
 </head>
 <body>
-  <h1>Phone Number Intelligence Tracker</h1>
-  <form action="/result" method="post">
-    <input type="text" name="phone_number" placeholder="Enter phone number" required>
-    <button type="submit">Track</button>
-  </form>
+    <h1>📞 Phone Number Intelligence Tracker</h1>
+    <form method="post" action="/result">
+        <label for="phone_number">Enter Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+        <button type="submit">Track</button>
+    </form>
 </body>
 </html>

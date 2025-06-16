@@ -2,17 +2,20 @@ import subprocess
 
 def run_phoneinfoga(phone_number):
     try:
-        # PhoneInfoga ko CLI se run kar rahe hain
-        result = subprocess.run(
-            ["python", "PhoneInfoga/phoneinfoga.py", "-n", phone_number],
-            capture_output=True,
-            text=True
-        )
-        return result.stdout
-    except Exception as e:
-        return f"PhoneInfoga error: {str(e)}"
+        # PhoneInfoga binary path
+        cmd = [
+            './modules/phoneinfoga/phoneinfoga.exe',
+            'scan',
+            '-n', phone_number,
+            '--json'
+        ]
 
-# Test ke liye direct run
-if __name__ == "__main__":
-    phone = input("Enter phone number: ")
-    print(run_phoneinfoga(phone))
+        result = subprocess.run(cmd, capture_output=True, text=True)
+
+        if result.returncode == 0:
+            return result.stdout
+        else:
+            return f"Error: {result.stderr}"
+
+    except Exception as e:
+        return f"Exception occurred: {str(e)}"
